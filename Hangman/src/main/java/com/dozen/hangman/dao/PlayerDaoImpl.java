@@ -6,7 +6,11 @@ import java.util.Objects;
 import org.springframework.stereotype.Repository;
 
 import com.dozen.hangman.model.Player;
-
+/**
+ * 
+ * @author deniz.ozen
+ *
+ */
 @Repository
 public class PlayerDaoImpl extends BaseDao implements PlayerDao{
 

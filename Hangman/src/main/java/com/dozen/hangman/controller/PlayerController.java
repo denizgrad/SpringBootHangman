@@ -17,7 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dozen.hangman.model.Player;
 import com.dozen.hangman.service.PlayerService;
-
+/**
+ * 
+ * @author deniz.ozen
+ *
+ */
 @RestController
 public class PlayerController extends AController{
 	@Autowired

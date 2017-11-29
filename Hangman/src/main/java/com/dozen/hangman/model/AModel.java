@@ -6,7 +6,11 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+/**
+ * 
+ * @author deniz.ozen
+ *
+ */
 @MappedSuperclass
 public class AModel {
 	@GeneratedValue (strategy = GenerationType.AUTO)
@@ -28,16 +32,5 @@ public class AModel {
 	public boolean isNew () {
 		return id == null;
 	}
-	
-	//error 
-//	@Transient
-//	Integer code;
-//	@Transient
-//	String message;
-//	
-//	public void setError(Integer code, String message) {
-//		this.code = code;
-//		this.message = message;
-//	}
 	
 }

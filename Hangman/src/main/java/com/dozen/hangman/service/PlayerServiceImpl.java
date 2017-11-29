@@ -10,7 +10,11 @@ import org.springframework.stereotype.Service;
 import com.dozen.hangman.dao.PlayerDao;
 import com.dozen.hangman.model.Player;
 import com.dozen.hangman.utility.exception.PlayerAlreadyExists;
-
+/**
+ * 
+ * @author deniz.ozen
+ *
+ */
 @Service
 @Transactional
 public class PlayerServiceImpl implements PlayerService{

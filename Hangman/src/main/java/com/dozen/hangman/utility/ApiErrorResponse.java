@@ -1,11 +1,11 @@
 package com.dozen.hangman.utility;
-
+/**
+ * 
+ * @author deniz.ozen
+ *	exception wrapper for json response
+ */
 public class ApiErrorResponse{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private String message;
 	private Integer code;
 

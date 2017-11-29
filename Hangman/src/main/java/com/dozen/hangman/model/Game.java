@@ -168,6 +168,16 @@ public class Game extends AModel {
 	public int getGuesses() {
 		return this.guesses;
 	}
+	/**
+	 * <p>
+	 * populates fields:<br>
+	 * 		incorrectWords <br>
+	 * 		guesses<br>
+	 * 		guessedWord<br>
+	 * 		player(just name field)<br>
+	 * 		gameStatus<br>
+	 * </p>
+	 */
 	public void populateStatusAndJsonFields() {
 		StringBuffer incorrects = new StringBuffer();
 		List<String> corrects = new ArrayList<>();

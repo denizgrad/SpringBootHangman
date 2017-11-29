@@ -11,7 +11,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.util.StringUtils;
-
+/**
+ * 
+ * @author deniz.ozen
+ *
+ */
 @Entity
 @Table(name = "GUESSES")
 public class Guess extends AModel {

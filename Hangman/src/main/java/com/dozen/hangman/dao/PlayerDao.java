@@ -3,7 +3,11 @@ package com.dozen.hangman.dao;
 import java.util.List;
 
 import com.dozen.hangman.model.Player;
-
+/**
+ * 
+ * @author deniz.ozen
+ *
+ */
 public interface PlayerDao {
 
 	Player getPlayer(int id);

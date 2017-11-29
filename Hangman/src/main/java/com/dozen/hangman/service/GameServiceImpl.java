@@ -21,7 +21,11 @@ import com.dozen.hangman.utility.exception.GameOverExc;
 import com.dozen.hangman.utility.exception.GuessAlreadyMadeExc;
 import com.dozen.hangman.utility.exception.HangmanException;
 import com.dozen.hangman.utility.exception.NoResultExc;
-
+/**
+ * 
+ * @author deniz.ozen
+ *
+ */
 @Service
 @Transactional
 public class GameServiceImpl implements GameService{

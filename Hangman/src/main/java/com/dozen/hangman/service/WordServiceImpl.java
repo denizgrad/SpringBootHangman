@@ -9,7 +9,11 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
-
+/**
+ * 
+ * @author deniz.ozen
+ * responsible for creating random words from "classpath:wordPool.txt"
+ */
 @Component
 public class WordServiceImpl implements WordService {
 

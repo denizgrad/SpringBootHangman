@@ -5,7 +5,11 @@ import java.util.List;
 import javax.persistence.NoResultException;
 
 import com.dozen.hangman.model.Game;
-
+/**
+ * 
+ * @author deniz.ozen
+ *
+ */
 public interface GameDao {
 
 	public void addGame(Game game);

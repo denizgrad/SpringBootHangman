@@ -6,7 +6,11 @@ import java.util.Map.Entry;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
+/**
+ * 
+ * @author deniz.ozen
+ *
+ */
 public enum GameStatus {
 	ongoing, won, lost;
 	

@@ -22,7 +22,11 @@ import com.dozen.hangman.model.Player;
 import com.dozen.hangman.service.GameService;
 import com.dozen.hangman.utility.exception.GuessInvalidExc;
 import com.dozen.hangman.utility.exception.ValidationExc;
-
+/**
+ * 
+ * @author deniz.ozen
+ *
+ */
 @RestController
 public class GameController extends AController{
 

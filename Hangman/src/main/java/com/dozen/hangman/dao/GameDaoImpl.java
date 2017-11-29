@@ -5,7 +5,11 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.dozen.hangman.model.Game;
-
+/**
+ * 
+ * @author deniz.ozen
+ *
+ */
 @Repository
 public class GameDaoImpl extends BaseDao implements GameDao{
 

@@ -11,7 +11,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dozen.hangman.utility.ApiErrorResponse;
 import com.dozen.hangman.utility.exception.HangmanException;
-
+/**
+ * 
+ * @author deniz.ozen
+ *
+ */
 @ControllerAdvice
 public class ExceptionAdvice extends AController {
 

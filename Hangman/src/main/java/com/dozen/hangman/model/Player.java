@@ -15,7 +15,11 @@ import javax.validation.constraints.Size;
 import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+/**
+ * 
+ * @author deniz.ozen
+ *
+ */
 @Entity
 @Table(name="PLAYERS")
 public class Player extends AModel{

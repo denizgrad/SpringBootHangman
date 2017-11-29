@@ -1,7 +1,11 @@
 package com.dozen.hangman.utility.exception;
 
 import org.springframework.http.HttpStatus;
-
+/**
+ * 
+ * @author deniz.ozen
+ *	abstract custom application exception
+ */
 public abstract class HangmanException extends RuntimeException{
 
 	public static String NO_RESULT = "exc.msg.noResult";
@@ -12,6 +16,9 @@ public abstract class HangmanException extends RuntimeException{
 	public static String GUESS_INVALID  ="exc.msg.guessInvalid";
 	protected Integer code;
 	protected String messageCode;
+	/**
+	 * fillers
+	 */
 	protected Object[] args;
 	/**
 	 * 
@@ -37,6 +44,9 @@ public abstract class HangmanException extends RuntimeException{
 	public void setArgs(String[] args) {
 		this.args = args;
 	}
+	/**
+	 * strategy filler
+	 */
 	public abstract HttpStatus getHttpStatus();
 
 }
