@@ -16,7 +16,7 @@ import com.dozen.hangman.utility.exception.HangmanException;
 public class ExceptionAdvice extends AController {
 
 	@ExceptionHandler(HangmanException.class)
-	public ResponseEntity<ApiErrorResponse> resourceNotFound(HangmanException ex) {
+	public ResponseEntity<ApiErrorResponse> customExceptionHandler(HangmanException ex) {
 		ApiErrorResponse response = new ApiErrorResponse();
 		response.setCode(ex.getCode());
 		response.setMessage(getMessage(ex.getMessageCode(), ex.getArgs()));
@@ -25,7 +25,7 @@ public class ExceptionAdvice extends AController {
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseBody
-	public ResponseEntity<ApiErrorResponse> processValidationError(MethodArgumentNotValidException ex) {
+	public ResponseEntity<ApiErrorResponse> validationHandler(MethodArgumentNotValidException ex) {
 		ApiErrorResponse response = new ApiErrorResponse();
 		response.setCode(-1);
 		response.setMessage(fromBindingErrors(ex.getBindingResult()));
