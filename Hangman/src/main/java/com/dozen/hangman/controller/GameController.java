@@ -54,14 +54,9 @@ public class GameController extends AController{
 	        consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, 
 	        produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Game> putGuessOnGameById(@PathVariable Integer id,@RequestBody @Valid Guess guess) {
-		if(!isOneLetter(guess.getLetter()) ) {
-			throw new GuessInvalidExc();
-		}
 		 return new ResponseEntity<Game>(gameService.makeGuess(id, guess), HttpStatus.OK);
 	}
-	public boolean isOneLetter(String name) {
-	    return name.matches("[a-zA-Z]");
-	}
+
 	
 	@GetMapping(value="/game/{id}")
 	public ResponseEntity<Game> getGameById(@PathVariable Integer id) {

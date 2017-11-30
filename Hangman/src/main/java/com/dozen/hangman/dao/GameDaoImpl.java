@@ -31,7 +31,8 @@ public class GameDaoImpl extends BaseDao implements GameDao{
 
 	@Override
 	public Game getGame(int id) {
-		return getCurrentSession().get(Game.class, id);
+		Game ret =  getCurrentSession().get(Game.class, id);
+		return ret;
 	}
 
 	@Override

@@ -43,6 +43,16 @@ public class PlayerDaoImpl extends BaseDao implements PlayerDao{
 	}
 
 	@Override
+	public Player getPlayerByName(String name) {
+		String sql = "select p from Player p "
+				+ "where p.name = :name";
+		Player ret = (Player) getCurrentSession().createQuery(sql)
+				.setParameter("name", name)
+				.uniqueResult();
+		return ret;
+	}
+	
+	@Override
 	public void deletePlayer(int id) {
 		deleteModel(Player.class, id);
 	}

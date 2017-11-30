@@ -6,7 +6,6 @@ import java.util.Set;
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
 
-import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
@@ -17,8 +16,10 @@ import com.dozen.hangman.model.Game;
 import com.dozen.hangman.model.GameStatus;
 import com.dozen.hangman.model.Guess;
 import com.dozen.hangman.model.Player;
+import com.dozen.hangman.utility.GameFactory;
 import com.dozen.hangman.utility.exception.GameOverExc;
 import com.dozen.hangman.utility.exception.GuessAlreadyMadeExc;
+import com.dozen.hangman.utility.exception.GuessInvalidExc;
 import com.dozen.hangman.utility.exception.HangmanException;
 import com.dozen.hangman.utility.exception.NoResultExc;
 /**
@@ -53,13 +54,11 @@ public class GameServiceImpl implements GameService{
 		if(playerDb == null) {
 			throw new NoResultExc("player");
 		}
-		Game newGame = new Game();
-		newGame.setPlayerObj(playerDb);
-		newGame.setGameStatus(GameStatus.ongoing);
-		newGame.setWord(wordService.getRandomWord());
-		newGame.setGuessesLeft(maximumGuess);
+		Game newGame = GameFactory.createGame(playerDb, 
+				GameStatus.ongoing, 
+				wordService.getRandomWord(), 
+				maximumGuess);
 		gameDao.addGame(newGame);
-		newGame.populateStatusAndJsonFields();
 		return newGame;
 	}
 
@@ -78,13 +77,15 @@ public class GameServiceImpl implements GameService{
 	 */
 	@Override
 	public Game makeGuess(Integer gameId, Guess guess) {
-
+		if(!isOneLetter(guess.getLetter()) ) {
+			throw new GuessInvalidExc();
+		}
 		Game game = gameDao.getGame(gameId);
 		if(game == null) {
 			throw new NoResultExc("game");
 		}
+		
 		game.populateStatusAndJsonFields();
-
 		guess.setLetter(guess.getLetter().toLowerCase());
 		
 		if(game.getGameStatus() == GameStatus.won) {
@@ -105,7 +106,13 @@ public class GameServiceImpl implements GameService{
 		
 		game.populateStatusAndJsonFields();
 		gameDao.updateGame(game);
+		
+		
 		return game;
+	}
+	
+	public boolean isOneLetter(String name) {
+	    return name.matches("[a-zA-Z]");
 	}
 
 	private boolean isGuessMadeBefore(Set<Guess> guessList, Guess guess) {

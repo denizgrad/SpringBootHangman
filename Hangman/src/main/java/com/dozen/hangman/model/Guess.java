@@ -27,6 +27,10 @@ public class Guess extends AModel {
 	@NotNull
 	private String letter;
 
+	public Guess(String letter) {
+		this.letter = letter;
+	}
+
 	public String getLetter() {
 		return letter;
 	}

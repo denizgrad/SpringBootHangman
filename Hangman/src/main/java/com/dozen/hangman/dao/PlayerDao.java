@@ -21,5 +21,7 @@ public interface PlayerDao {
 	void updatePlayer(Player Player);
 
 	boolean isPlayerExists(String name);
+	
+	Player getPlayerByName(String name);
 
 }

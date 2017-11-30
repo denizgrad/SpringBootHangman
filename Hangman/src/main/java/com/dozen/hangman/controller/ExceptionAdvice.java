@@ -15,6 +15,7 @@ import com.dozen.hangman.utility.exception.HangmanException;
  * 
  * @author deniz.ozen
  *
+ *	Exception catcher and wrapper
  */
 @ControllerAdvice
 public class ExceptionAdvice extends AController {

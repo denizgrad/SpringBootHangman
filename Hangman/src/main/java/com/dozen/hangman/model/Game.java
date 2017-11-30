@@ -109,7 +109,8 @@ public class Game extends AModel {
 	}
 
 	public void addGuess(Guess guess) {
-
+		this.getGuessList().add(guess);
+		guess.setGame(this);
 	}
 
 	public void setGuessedWord(String guessedWord) {
@@ -171,11 +172,13 @@ public class Game extends AModel {
 	/**
 	 * <p>
 	 * populates fields:<br>
-	 * 		incorrectWords <br>
-	 * 		guesses<br>
-	 * 		guessedWord<br>
-	 * 		player(just name field)<br>
-	 * 		gameStatus<br>
+	 * 	&nbsp	incorrectWords <br>
+	 * 	&nbsp 	guesses<br>
+	 * 	&nbsp 	guessedWord<br>
+	 * 	&nbsp 	player(just name field)<br>
+	 * 	&nbsp 	gameStatus<br>
+	 * 
+	 * before validations and json response
 	 * </p>
 	 */
 	public void populateStatusAndJsonFields() {

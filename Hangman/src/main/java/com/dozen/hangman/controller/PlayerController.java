@@ -31,12 +31,13 @@ public class PlayerController extends AController{
 	public ResponseEntity<List<Player>> getPlayers() {
 		return new ResponseEntity<List<Player>>(playerService.getPlayers(), HttpStatus.OK);
 	}
-	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "/player", method = RequestMethod.POST,
 	        consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, 
-	        produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity createPlayer(@RequestBody @Valid Player player) {
-		return new ResponseEntity<Player>(playerService.createPlayer(player), HttpStatus.OK);
+	        produces = MediaType.APPLICATION_JSON_UTF8_VALUE
+	        )
+	public ResponseEntity<Player> createPlayer(@RequestBody @Valid Player player) {
+		Player ret = playerService.createPlayer(player);
+		return new ResponseEntity<Player>(ret, HttpStatus.OK);
 	}
 	@GetMapping(value="/player/{id}")
 	public ResponseEntity<Player> getPlayerById(@PathVariable Integer id) {
