@@ -105,6 +105,9 @@ public class GameServiceImpl implements GameService{
 		guess.setGame(game);
 		
 		game.populateStatusAndJsonFields();
+		if(game.isLost() && game.getGuessesLeft() == 0) {
+			game.setGuessedWord(game.getWord());
+		}
 		gameDao.updateGame(game);
 		
 		

@@ -19,6 +19,10 @@ import org.springframework.util.StringUtils;
 @Entity
 @Table(name = "GUESSES")
 public class Guess extends AModel {
+	public Guess() {
+		super();
+	}
+
 	@ManyToOne
 	@JoinColumn(name = "game_id")
 	Game game;

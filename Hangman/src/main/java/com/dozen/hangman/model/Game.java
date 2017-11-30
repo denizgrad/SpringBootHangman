@@ -162,6 +162,10 @@ public class Game extends AModel {
 	public boolean isWon() {
 		return !this.getGuessedWord().contains("*");
 	}
+	@JsonIgnore
+	public boolean isLost() {
+		return this.gameStatus==GameStatus.lost;
+	}
 
 	
 	public void setGuesses(Integer guesses) {

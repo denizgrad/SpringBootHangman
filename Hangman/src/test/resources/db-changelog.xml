@@ -36,8 +36,8 @@
 				<constraints nullable="false" />
 			</column>
 			<column name="word" type="VARCHAR(255)" />
-			<column name="gameStatus" type="VARCHAR(15)" />
-			<column name="guessesLeft" type="INT" />
+			<column name="game_status" type="VARCHAR(15)" />
+			<column name="guesses_left" type="INT" />
 			<column name="player_id" type="INT" />
 		</createTable>
 	</changeSet>
