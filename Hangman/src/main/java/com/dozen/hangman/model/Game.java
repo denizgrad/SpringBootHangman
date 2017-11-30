@@ -83,9 +83,10 @@ public class Game extends AModel {
 	private String player;
 	
 	@Enumerated(EnumType.STRING)
+	@Column(name="game_status")
 	GameStatus gameStatus;
 	
-	@Column
+	@Column(name="guesses_left")
 	Integer guessesLeft;
 	/**
 	 * guess count @see {@link Game#populateStatusAndJsonFields()}

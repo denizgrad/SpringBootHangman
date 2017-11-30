@@ -5,6 +5,7 @@ import static org.junit.Assert.assertThat;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Query;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class PlayerDaoTest extends BaseDao{
 
 	@Test
 	@Transactional
-	public void whenFindByName_thenReturnEmployee() {
+	public void addDeleteTest() {
 	    // given
 	    Player pla = new Player();
 	    pla.setName(PLA_NAME);
@@ -41,6 +42,14 @@ public class PlayerDaoTest extends BaseDao{
 	    // then
 	    assertThat(found.getName())
 	      .isEqualTo(pla.getName());
+	    
+	    String hql = String.format("delete from %s", "Player");
+	    Query query = getCurrentSession().createQuery(hql);
+	    query.executeUpdate();
+	    
+	    assertThat(playerDao.getPlayers().size())
+	      .isEqualTo(0);
+	    
 	}
 
 }
